@@ -65,6 +65,8 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
+lib/libuniapi.so
+lib/libuniplugin.so
 lib/libarcsoft_selfie_camera_lite.so
 lib/libqomx_core.so
 lib/libQjpeg.so
@@ -91,6 +93,8 @@ lib/libcamera_metadata.so
 lib/libjpegQtable_interface.so
 lib/libsecjpeginterface.so
 lib/libjpega.so
+lib64/libuniapi.so
+lib64/libuniplugin.so
 lib64/libarcsoft_selfie_camera_lite.so
 lib64/libarccamera.so
 lib64/libcamera_client.so
@@ -333,6 +337,10 @@ etc/firmware/cpp_firmware_v1_10_0.fw
 bin/fingerprintd
 lib/hw/fingerprint.default.so
 lib64/hw/fingerprint.default.so
+lib64/libbauthserver.so
+lib64/libbauthtzcommon.so
+lib64/libegis_fp_normal_sensor_test.so
+lib64/libsynaFpSensorTestNwd.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8996.so
@@ -342,6 +350,7 @@ vendor/lib64/hw/gatekeeper.msm8996.so
 bin/loc_launcher
 lib64/libloc_api_v02.so
 lib/libloc_api_v02.so
+lib64/hw/gps.default.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libdataitems.so
 vendor/lib/libflp.so
@@ -419,6 +428,8 @@ bin/cs
 bin/mcDriverDaemon
 lib/libMcClient.so
 lib64/libMcClient.so
+vendor/lib/libMcRegistry.so
+vendor/lib64/libMcRegistry.so
 app/mcRegistry/07010000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
@@ -501,15 +512,23 @@ vendor/lib/libqcmaputils.so
 vendor/lib64/libqcmaputils.so
 framework/telephony-common.jar
 lib/libreference-ril.so
+lib/libril.so
+lib/libsecnativefeature.so
 lib/librilutils.so
 lib/libsecril-client.so
 lib/libsec-ril.so
 lib/libsec-ril-dsds.so
+lib/libxml2.so
+lib/libprotobuf-cpp-full.so
 lib64/libreference-ril.so
+lib64/libril.so
 lib64/librilutils.so
 lib64/libsecril-client.so
 lib64/libsec-ril.so
+lib64/libsecnativefeature.so
 lib64/libsec-ril-dsds.so
+lib64/libxml2.so
+lib64/libprotobuf-cpp-full.so
 vendor/lib/libconfigdb.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libnetmgr.so
@@ -558,6 +577,8 @@ bin/sensors.qcom
 bin/mmi
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
+lib/libsensorlistener.so
+lib/libsensorservice.so
 vendor/lib/mmi_sensor.so
 vendor/lib/sensors.ssc.so
 vendor/lib/sensors.oem.so
@@ -570,7 +591,15 @@ vendor/lib64/mmi_sensor.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/sensors.oem.so
 vendor/lib64/hw/sensorhubs.msm8996.so
+lib64/libsensorlistener.so
+lib64/libhr.so
+lib64/libsensorservice.so
+lib64/libagc_max.so
+lib64/libmaxflicker.so
 
+# Surface Composer
+lib/libion.so
+lib64/libion.so
 
 # Thermal
 etc/thermal-engine.conf
