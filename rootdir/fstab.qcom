@@ -14,6 +14,7 @@
 /dev/block/bootdevice/by-name/efs            /efs               ext4    noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic                                 wait,check
 /dev/block/bootdevice/by-name/apnhlos	     /firmware	        vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0                                wait
 /dev/block/bootdevice/by-name/modem          /firmware-modem    vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0                                wait    
+/dev/block/bootdevice/by-name/misc           /misc              emmc    defaults                                   defaults
 
 #VOLD
 #/dev/block/bootdevice/by-name/hidden         /preload                ext4    defaults    voldmanaged=preload:auto
