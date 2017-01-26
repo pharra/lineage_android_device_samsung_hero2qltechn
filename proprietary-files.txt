@@ -428,8 +428,8 @@ bin/cs
 bin/mcDriverDaemon
 lib/libMcClient.so
 lib64/libMcClient.so
-vendor/lib/libMcRegistry.so
-vendor/lib64/libMcRegistry.so
+lib/libMcRegistry.so
+lib64/libMcRegistry.so
 app/mcRegistry/07010000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
