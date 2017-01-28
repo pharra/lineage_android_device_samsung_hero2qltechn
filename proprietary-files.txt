@@ -300,6 +300,15 @@ vendor/lib64/libmmcamera2_q3a_core.so
 vendor/lib64/libmmcamera2_stats_algorithm.so
 vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
 
+# Camera Firmware
+etc/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_4_0.fw
+etc/firmware/cpp_firmware_v1_6_0.fw
+etc/firmware/cpp_firmware_v1_8_0.fw
+etc/firmware/cpp_firmware_v1_10_0.fw
+
 # DRM
 bin/qseecomd
 bin/qseecom_sample_client
@@ -324,6 +333,10 @@ vendor/lib64/libssd.so
 bin/fingerprintd
 lib/hw/fingerprint.default.so
 lib64/hw/fingerprint.default.so
+lib64/libbauthserver.so
+lib64/libbauthtzcommon.so
+lib64/libegis_fp_normal_sensor_test.so
+lib64/libsynaFpSensorTestNwd.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8996.so
@@ -333,6 +346,7 @@ vendor/lib64/hw/gatekeeper.msm8996.so
 bin/loc_launcher
 lib64/libloc_api_v02.so
 lib/libloc_api_v02.so
+lib64/hw/gps.default.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libdataitems.so
 vendor/lib/libflp.so
@@ -468,6 +482,8 @@ bin/cs
 bin/mcDriverDaemon
 lib/libMcClient.so
 lib64/libMcClient.so
+lib/libMcRegistry.so
+lib64/libMcRegistry.so
 app/mcRegistry/07010000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
@@ -607,6 +623,8 @@ bin/sensors.qcom
 bin/mmi
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
+lib/libsensorlistener.so
+lib/libsensorservice.so
 vendor/lib/mmi_sensor.so
 vendor/lib/sensors.ssc.so
 vendor/lib/sensors.oem.so
@@ -619,6 +637,11 @@ vendor/lib64/mmi_sensor.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/sensors.oem.so
 vendor/lib64/hw/sensorhubs.msm8996.so
+lib64/libsensorlistener.so
+lib64/libhr.so
+lib64/libsensorservice.so
+lib64/libagc_max.so
+lib64/libmaxflicker.so
 
 
 # Thermal
