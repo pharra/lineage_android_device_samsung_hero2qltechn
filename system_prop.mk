@@ -34,8 +34,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.gyro.disable=0 \
-    persist.camera.imglib.fddsp=1 \
     camera.disable_zsl_mode=1
 
 # CNE
@@ -64,19 +62,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.ad=1 \
     ro.qcom.ad.sensortype=2
 
-# Display feature (bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.display.support=63
-
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.qfp=false \
-    ro.hardware.fingerprint=fpc \
-    sys.fpc.tu.disabled=0
+    persist.qfp=false
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -92,7 +84,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.enable_vds=1 \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.opengles.version=196610 \
+    ro.opengles.version=196609 \
     ro.sf.lcd_density=640 \
     sdm.debug.disable_rotator_split=1 \
     sdm.perf_hint_window=50
@@ -189,10 +181,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.usb.controller=15400000.dwc3
-# Default USB mode
-    persist.service.adb.enable=1 \                                                  
-    persist.service.debuggable=1 \
-    persist.sys.usb.config=adb
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
