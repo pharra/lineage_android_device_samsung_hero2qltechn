@@ -28,7 +28,6 @@
 import init.target.rc
 import init.carrier.rc
 import init.qcom.factory.rc
-import init.qcom.power.rc
 import init.qcom.usb.rc
 import init.rilcommon.rc
 
@@ -38,20 +37,13 @@ on early-init
 
 on init
     # Set permissions for persist partition
+    mkdir /efs 0771 system radio
     mkdir /persist 0771 system system
-
-    mkdir /preload 0771 system system
+    mkdir /storage 0550 system sdcard_r
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
-    symlink /sdcard1 /storage/sdcard1
-    symlink /sdcard1 /mnt/extSdCard
-    symlink /sdcard1 /mnt/sdcard1
-    symlink /sdcard1 /external_sd
-    symlink /storage/usbdisk /mnt/usbdisk
-
-    export EXTERNAL_STORAGE /sdcard
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
