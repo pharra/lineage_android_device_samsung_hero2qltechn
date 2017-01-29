@@ -15,6 +15,7 @@ vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libvpp_svc_skel.so
 
 # Audio
+bin/audiod
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
@@ -308,6 +309,7 @@ vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
 bin/qseecomd
 bin/qseecom_sample_client
 bin/qseecom_security_test
+vendor/bin/qseeproxydaemon
 vendor/bin/qseeproxysampledaemon
 vendor/lib/libQSEEComAPI.so
 vendor/lib64/lib-sec-disp.so
@@ -616,6 +618,10 @@ vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
+# USF
+bin/usf_tester
+bin/usf_proximity
+
 # Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
 
@@ -670,3 +676,5 @@ bin/diag_mdlog
 bin/smdexe
 bin/at_distributor
 bin/connfwexe
+bin/bintvoutservice
+bin/sem_daemon
