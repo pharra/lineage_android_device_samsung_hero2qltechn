@@ -132,7 +132,8 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc \
     init.usb.configfs.rc \
-    init.qcom.sh
+    init.qcom.sh \
+    init.wifi.rc
 
 # CNE
 PRODUCT_PACKAGES += \
