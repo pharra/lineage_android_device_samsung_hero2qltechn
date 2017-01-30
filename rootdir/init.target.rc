@@ -36,6 +36,8 @@ on early-init
 
 #on post-fs
 #    export LD_PRELOAD libNimsWrap.so
+    mkdir /efs/carrier system system
+    chmod 0755 /efs/carrier
 
 on fs
     wait /dev/block/bootdevice
@@ -75,6 +77,19 @@ on fs
     wait /dev/block/bootdevice/by-name/bluetooth
     mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
 
+#For Absolute Persistence Partition
+    mkdir /persdata 0755 system system
+    mkdir /persdata/absolute 0750 system system
+
+    wait /dev/block/bootdevice/by-name/persdata
+#    check_fs /dev/block/bootdevice/by-name/persdata ext4
+    mount ext4 /dev/block/bootdevice/by-name/persdata /persdata/absolute nosuid nodev barrier=1
+
+    chown system system /persdata
+    chmod 0755 /persdata
+    chown system system /persdata/absolute
+    chmod 0750 /persdata/absolute
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -108,6 +123,25 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics radio sdcard_rw sdcard_r media_rw shell log
+
+# SENSOR FRAMEWORK : starts fingerprintService
+service vcsFPService /system/bin/vcsFPService
+    class late_start
+    user system
+    group system
+
+# FINGERPRINT FRAMEWORK : starts fingerprintd
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system
+
+# IPSec for VOLTE
+service ipsec-daemon /system/bin/IPSecService
+    class main
+    socket ipsec_socket stream 660 system system
+    user system
+    group system net_raw inet net_admin
 
 #fingerprint service
 service fingerprintd /system/bin/fingerprintd
