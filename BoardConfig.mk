@@ -18,7 +18,7 @@
 BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/hero2qltechn
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-TARGET_OTA_ASSERT_DEVICE := hero2qltechn,hero2qltedcm,SC-02H
+TARGET_OTA_ASSERT_DEVICE := hero2qltechn,hero2qltedcm,hero2qltevdi
 USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
@@ -42,22 +42,19 @@ TARGET_USES_64_BIT_BINDER := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8996
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1 androidboot.selinux=permissive
-BOARD_MKBOOTIMG_ARGS := --board RILPA14A000KU
-BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_TAGS_OFFSET := 0x02000000
-BOARD_RAMDISK_OFFSET     := 0x02200000
-BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1 androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_SEPARATED_DT := true
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02200000 --tags_offset 0x02000000 --board RILPA14A000RU
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
 TARGET_KERNEL_CONFIG := lineage_hero2qltechn_defconfig
-TARGET_USES_UNCOMPRESSED_KERNEL := false
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
@@ -164,7 +161,8 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # FM
-#AUDIO_FEATURE_ENABLED_FM := true
+BOARD_HAVE_QCOM_FM := true
+TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Init properties from bootloader version, ex. model info
 TARGET_UNIFIED_DEVICE := true
@@ -202,6 +200,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
+BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
+PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 
 # SELinux
@@ -212,16 +212,19 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 USE_SENSOR_MULTI_HAL := true
 
 # Wifi
-WPA_SUPPLICANT_VERSION      := VER_0_8_X
-BOARD_WLAN_DEVICE           := bcmdhd
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcm4359_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4359.bin"
-WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4359.bin"
+BOARD_HAVE_SAMSUNG_WIFI          := true
+BOARD_WLAN_DEVICE                := bcmdhd
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_NVRAM_PATH           := "/etc/wifi/nvram_net.txt"
+WIFI_DRIVER_NVRAM_PATH_PARAM	 := "/sys/module/dhd/parameters/nvram_path"
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
+WIFI_BAND                        := 802_11_ABG
 
 # inherit from the proprietary version
 -include vendor/samsung/hero2qltechn/BoardConfigVendor.mk
