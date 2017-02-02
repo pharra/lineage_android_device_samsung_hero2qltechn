@@ -30,7 +30,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.speaker=true
 
 # Bluetooth
-    ro.bt.bdaddr_path="/efs/bluetooth/bt_addr
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
