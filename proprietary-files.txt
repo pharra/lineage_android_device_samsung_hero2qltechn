@@ -16,6 +16,8 @@ vendor/lib/rfsa/adsp/libvpp_svc_skel.so
 
 # Audio
 bin/audiod
+etc/firmware/dbmd2_va_fw.bin
+etc/firmware/dbmd4_va_fw.bin
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
@@ -388,6 +390,13 @@ etc/firmware/a530v3_seq.fw2
 bin/ipacm
 
 # Keystore
+#bin/keystore
+#lib/libkeystore_binder.so
+#lib/libkeystore-engine.so
+#lib/libtlc_tz_keystore.so
+#lib64/libkeystore_binder.so
+#lib64/libkeystore-engine.so
+#lib64/libtlc_tz_keystore.so
 lib/hw/keystore.default.so
 lib/hw/keystore.mdfpp.so
 lib64/hw/keystore.default.so
