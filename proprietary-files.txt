@@ -352,9 +352,13 @@ vendor/lib64/hw/gatekeeper.msm8996.so
 
 # GPS
 bin/loc_launcher
-lib64/libloc_api_v02.so
+lib/libgps.utils.so
+lib/hw/gps.default.so
 lib/libloc_api_v02.so
+lib64/libloc_api_v02.so
+lib64/libgps.utils.so
 lib64/hw/gps.default.so
+vendor/lib/mmi_gps.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libdataitems.so
 vendor/lib/libflp.so
@@ -375,6 +379,7 @@ vendor/lib64/libloc_xtra.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/libulp2.so
+vendor/lib64/mmi_gps.so
 
 # Signed graphics firmware
 etc/firmware/a530_gpmu.fw2
