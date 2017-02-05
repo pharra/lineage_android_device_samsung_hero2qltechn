@@ -46,10 +46,8 @@ on init
     mkdir /persist 0771 system system
     mkdir /preload 0771 system system
     mkdir /efs 0771 system radio
-    mkdir /storage 0550 system sdcard_r
 
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 on post-fs
@@ -84,6 +82,7 @@ on fs
     chown radio system /efs
     chmod 0771 /efs
     restorecon -R /efs
+    rm -rf /efs/dmverity
 
     #For Absolute Persistence Partition
     mkdir /persdata 0755 system system
@@ -104,11 +103,9 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
-    exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
 
 on boot
     start rmt_storage
-    start rfs_access
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
@@ -605,11 +602,6 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-
-service rfs_access /system/bin/rfs_access
-   class core
-   user root
-   group system net_raw
 
 service tftp_server /system/bin/tftp_server
    class main
