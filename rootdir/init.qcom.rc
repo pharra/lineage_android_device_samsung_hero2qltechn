@@ -304,6 +304,9 @@ on boot
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
 on post-fs-data
+    # sec_efs_file
+    mkdir /efs/sec_efs 0775 radio system
+
     #Create directories for Fingerprint
     mkdir /data/misc/stargate 0770 system system
     mkdir /data/misc/stargate/bg_estimation 0770 system system
@@ -489,6 +492,29 @@ on property:sys.boot_completed=1
 
 on property:security.semdaemonfinish=1
     stop sem_daemon
+
+    # drm
+    mkdir /efs/drm 0774 drm system
+    chown drm system /efs/drm
+    chmod 0774 /efs/drm
+
+    # h2k
+    mkdir /efs/cpk 0771 radio system
+    chmod 0644 /efs/redata.bin
+    chmod 0644 /efs/cpk/redata.bin
+    chown radio radio /efs/h2k.dat
+    chown radio radio /efs/cpk/h2k.dat
+    chmod 0644 /efs/h2k.dat
+    chmod 0644 /efs/cpk/h2k.dat
+    chown system system /efs/drm/h2k
+
+    # Mobicore
+    mkdir /efs/TEE  0770 radio system
+    chmod 700 /dev/mobicore
+    chmod 666 /dev/mobicore-user
+    chown system system /dev/mobicore
+    chown radio system /dev/mobicore-user
+    export MC_AUTH_TOKEN_PATH /efs/TEE
 
 # SSWAP
 service swapon /sbin/sswap -s -f 2048
