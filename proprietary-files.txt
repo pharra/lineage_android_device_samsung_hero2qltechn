@@ -60,11 +60,24 @@ vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbmapper.so
 
 # Bluetooth
-vendor/firmware/bcm4359C0_V0033.0058_semco.hcd
-vendor/firmware/bcm4359C0_V0033.0059_murata.hcd
+vendor/firmware/bcm4359C0_V0076.0132_semco.hcd
+vendor/firmware/bcm4359C0_V0076.0133_murata.hcd
+vendor/firmware/libpn551_fw.so
 bin/btnvtool
 bin/hci_qcomm_init
 vendor/lib64/libbtnv.so
+etc/firmware/btfw32.tlv
+etc/firmware/btnv32.bin
+etc/firmware/nvm_tlv.bin
+etc/firmware/nvm_tlv_1.3.bin
+etc/firmware/nvm_tlv_2.1.bin
+etc/firmware/nvm_tlv_3.0.bin
+etc/firmware/nvm_tlv_3.2.bin
+etc/firmware/rampatch_tlv.img
+etc/firmware/rampatch_tlv_1.3.tlv
+etc/firmware/rampatch_tlv_2.1.tlv
+etc/firmware/rampatch_tlv_3.0.tlv
+etc/firmware/rampatch_tlv_3.2.tlv
 
 # Camera
 bin/mm-qcamera-daemon
@@ -73,15 +86,10 @@ lib/libuniplugin.so
 lib/libarcsoft_selfie_camera_lite.so
 lib/libqomx_core.so
 lib/libQjpeg.so
-lib/libarccamera.so
 lib/libcamera_client.so
 lib/libcameraservice_cameramodule.so
-lib/libseccamera_jni.so
-lib/libqjpeg_secvision.so
 lib/libatomjpeg.so
 lib/libmmjpeg_interface.so
-lib/libarcsoft_beautyface_jni.so
-lib/libarcsoft_beautyface_engine.so
 lib/libcameraservice.so
 lib/libSisoCameraDistortionEffects.so
 lib/libsecjpegquram.so
@@ -91,18 +99,16 @@ lib/libmmcamera_interface.so
 lib/libdmcFaceEngine.so
 lib/libseccameracore.so
 lib/libatomjpeg_panorama_enc.so
-lib/libqjpegforphotoeditor.so
 lib/libcamera_metadata.so
 lib/libjpegQtable_interface.so
-lib/libsecjpeginterface.so
-lib/libjpega.so
 lib64/libuniapi.so
 lib64/libuniplugin.so
 lib64/libarcsoft_selfie_camera_lite.so
-lib64/libarccamera.so
 lib64/libcamera_client.so
-lib64/libseccamera_jni.so
 lib64/libcamera_metadata.so
+lib/libarccamera.so
+vendor/lib/libsecjpeginterface.so
+vendor/lib/libjpega.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_frame_algorithm.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -299,6 +305,8 @@ vendor/lib/libmmcamera2_companion_s5k2l1sx.so
 vendor/lib/libmmcamera2_companion_s5k2p2xx.so
 vendor/lib/libmmcamera_isp_color_correct46.so
 vendor/lib/libchromatix_s5k4e6xx_cpp_preview_hdr.so
+vendor/lib64/libsecjpeginterface.so
+vendor/lib64/libjpega.so
 vendor/lib64/libmmcamera_tintless_algo.so
 vendor/lib64/libmmcamera2_sensor_debug.so
 vendor/lib64/libmmcamera2_frame_algorithm.so
@@ -306,6 +314,9 @@ vendor/lib64/libmmcamera_dbg.so
 vendor/lib64/libmmcamera2_q3a_core.so
 vendor/lib64/libmmcamera2_stats_algorithm.so
 vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
+etc/firmware/s5k2p2xx_chromatix.xml
+etc/firmware/s5k4e6xx_cc_chromatix.xml
+etc/firmware/s5k4e6xx_chromatix.xml
 
 # DRM
 bin/qseecomd
@@ -333,9 +344,15 @@ etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
+etc/firmware/cpp_firmware_v1_5_0.fw
+etc/firmware/cpp_firmware_v1_5_2.fw
 etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 etc/firmware/cpp_firmware_v1_10_0.fw
+etc/firmware/D12QL_Isp0_s5k2l1sx.bin
+etc/firmware/D12QL_s5k2l1sx_chromatix.xml
+etc/firmware/D12QS_imx260_chromatix.xml
+etc/firmware/D12QS_Isp0_imx260.bin
 
 # Fingerprint
 bin/fingerprintd
@@ -375,13 +392,21 @@ vendor/lib64/libgeofence.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_ext.so
-vendor/lib64/libloc_xtra.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/libulp2.so
 vendor/lib64/mmi_gps.so
 
 # Signed graphics firmware
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a300_pm4.fw
+etc/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw
+etc/firmware/a420_pfp.fw
+etc/firmware/a420_pm4.fw
 etc/firmware/a530_gpmu.fw2
 etc/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw
@@ -390,6 +415,7 @@ etc/firmware/a530v1_pm4.fw
 etc/firmware/a530v2_seq.fw2
 etc/firmware/a530v3_gpmu.fw2
 etc/firmware/a530v3_seq.fw2
+etc/firmware/a540_gpmu.fw2
 
 # IPA
 bin/ipacm
@@ -403,7 +429,6 @@ bin/ipacm
 #lib64/libkeystore-engine.so
 #lib64/libtlc_tz_keystore.so
 lib/hw/keystore.default.so
-lib/hw/keystore.mdfpp.so
 lib64/hw/keystore.default.so
 lib64/hw/keystore.mdfpp.so
 
@@ -442,15 +467,15 @@ etc/firmware/ois_fw_sec.bin
 # Mobicore
 bin/cs
 bin/mcDriverDaemon
-lib/libMcClient.so
-lib64/libMcClient.so
-lib/libMcRegistry.so
-lib64/libMcRegistry.so
+vendor/lib/libMcClient.so
+vendor/lib64/libMcClient.so
+vendor/lib/libMcRegistry.so
+vendor/lib64/libMcRegistry.so
 app/mcRegistry/07010000000000000000000000000000.tlbin
+app/mcRegistry/08880000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
-
-# Network
+app/mcRegistry/ffffffffd00000000000000000000014.tlbin
 
 # Perf
 bin/iop
@@ -459,12 +484,11 @@ bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib64/libqti-perfd-client.so
 vendor/lib/libqti-perfd-client.so
-lib64/libqti-iop.so
+vendor/lib/libqti-iop.so
+vendor/lib64/libqti-iop.so
 vendor/bin/perfd
-vendor/lib/libqc-opt.so
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-perfd-client.so
-vendor/lib64/libqc-opt.so
 vendor/lib64/libqti-iop-client.so
 vendor/lib64/libqti-perfd-client.so
 
@@ -474,15 +498,13 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
-bin/mm-pp-dpps
+vendor/bin/mm-pp-dpps
 etc/permissions/com.qti.snapdragon.sdk.display.xml
-framework/com.qti.snapdragon.sdk.display.jar
 vendor/lib/libdisp-aba.so
 vendor/lib64/libdisp-aba.so
 
 # QMI
 bin/irsc_util
-vendor/bin/pd-mapper
 vendor/lib/libdiag.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
@@ -597,15 +619,12 @@ lib/libsensorlistener.so
 lib/libsensorservice.so
 vendor/lib/mmi_sensor.so
 vendor/lib/sensors.ssc.so
-vendor/lib/sensors.oem.so
-vendor/lib/test_suite_no_sensor.so
 vendor/lib/hw/sensorhubs.msm8996.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/libmmcamera2_sensor_debug.so
 vendor/lib64/mmi_sensor.so
 vendor/lib64/sensors.ssc.so
-vendor/lib64/sensors.oem.so
 vendor/lib64/hw/sensorhubs.msm8996.so
 lib64/libsensorlistener.so
 lib64/libhr.so
@@ -632,16 +651,10 @@ vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
-# USF
-bin/usf_tester
-bin/usf_proximity
-
 # Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wifi
-bin/cnss-daemon
-bin/cnss_diag
 etc/wifi/bcmdhd_apsta.bin_b1
 etc/wifi/bcmdhd_apsta.bin_b90s_b1
 etc/wifi/bcmdhd_apsta.bin_c0
@@ -677,9 +690,12 @@ etc/wifi/nvram_net.txt_wisol_b1
 etc/wifi/nvram_net.txt_wisol_c0
 
 # Unknown
+etc/firmware/Master0.bin
+etc/firmware/Master1.bin
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
 vendor/lib/libmm-disp-apis.so
 vendor/lib64/libmm-disp-apis.so
-vendor/firmware/libpn551_fw.so
 bin/factory.adsp
 bin/servicemanager
 bin/ip
@@ -692,3 +708,24 @@ bin/at_distributor
 bin/connfwexe
 bin/bintvoutservice
 bin/sem_daemon
+bin/qfipsverify
+vendor/lib/libflash_pmic.so
+
+# Boot scripts
+#bin/prepare_param.sh
+#etc/init.crda.sh
+#etc/init.qcom.bt.sh
+#etc/init.qcom.fm.sh
+#etc/usf_settings.sh
+#etc/init.ath3k.bt.sh
+#etc/init.sec.boot.sh
+#etc/usf_post_boot.sh
+#etc/init.qcom.coex.sh
+#etc/init.qcom.uicc.sh
+#etc/init.qcom.wifi.sh
+#etc/hsic.control.bt.sh
+#etc/init.qcom.audio.sh
+#etc/init.qcom.debug.sh
+#etc/qca6234-service.sh
+#etc/init.qcom.efs.sync.sh
+#etc/init.qcom.post_boot.sh
