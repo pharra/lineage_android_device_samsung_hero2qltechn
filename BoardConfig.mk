@@ -171,9 +171,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_hero2qltechn
 TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_TREE)/init/init_hero2qltechn.cpp
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
-# Keymaster
-TARGET_PROVIDES_KEYMASTER := true
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
