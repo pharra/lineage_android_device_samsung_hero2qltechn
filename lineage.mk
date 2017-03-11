@@ -35,12 +35,11 @@ PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G9350
 PRODUCT_MANUFACTURER := samsung
 
-PRODUCT_GMS_CLIENTID_BASE := android-samsung
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="hero2qltechn" \
-    PRODUCT_NAME="hero2qltezh" \
-    BUILD_FINGERPRINT="samsung/hero2qltezh/hero2qltechn:6.0.1/MMB29M/G9350ZHU2APK2:user/release-keys" \
-    PRIVATE_BUILD_DESC="hero2qltezh-user 6.0.1 MMB29M G9350ZHU2APK2 release-keys"
+    PRODUCT_NAME="hero2qltechn" \
+    BUILD_FINGERPRINT="samsung/hero2qltezc/hero2qltechn:7.0/NRD90M/G9350ZCU2BQC1:user/release-keys" \
+    PRIVATE_BUILD_DESC="hero2qltezc-user 7.0 NRD90M G9350ZCU2BQC1 release-keys"
 
-TARGET_VENDOR := samsung
+
+TARGET_VENDOR := Samsung

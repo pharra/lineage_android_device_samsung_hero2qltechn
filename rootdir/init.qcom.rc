@@ -32,6 +32,11 @@ import init.wifi.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    mkdir /firmware 0771 system system
+    mkdir /bt_firmware 0771 system system
+    mkdir /firmware-modem 0771 system system
+    symlink /data/tombstones /tombstones
+    mkdir /dsp 0771 media media
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
@@ -40,7 +45,14 @@ on init
     mkdir /preload 0771 system system
 
     # Support legacy paths
+    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
+    symlink /sdcard1 /storage/sdcard1
+    symlink /sdcard1 /mnt/extSdCard
+    symlink /sdcard1 /mnt/sdcard1
+    symlink /sdcard1 /external_sd
+    symlink /storage/usbdisk /mnt/usbdisk
+    export EXTERNAL_STORAGE /sdcard
 
     symlink /dev/block/bootdevice/by-name/persistent  /dev/block/persistent		
     symlink /dev/block/bootdevice/by-name/steady  /dev/block/steady
@@ -70,13 +82,37 @@ on property:init.svc.bootanim=running
 on fs
     wait /dev/block/bootdevice
     mount_all fstab.qcom
+
+    wait /dev/block/bootdevice/by-name/cache
+    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
+
+    wait /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
 
+    wait /dev/block/bootdevice/by-name/efs
+    mount ext4 /dev/block/bootdevice/by-name/efs /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
     chown radio system /efs
     chmod 0771 /efs
     restorecon -R /efs
+
+    wait /dev/block/bootdevice/by-name/dsp
+    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp ro nosuid nodev barrier=1
+
+    wait /dev/block/bootdevice/by-name/apnhlos
+    mount vfat /dev/block/bootdevice/by-name/apnhlos /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
+    wait /dev/block/bootdevice/by-name/modem
+    mount vfat /dev/block/bootdevice/by-name/modem /firmware-modem ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
+    wait /dev/block/bootdevice/by-name/bluetooth
+    mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
+
+    restorecon_recursive /persist
+    mkdir /persist/data 0700 system system
+    mkdir /persist/bms 0700 root system
 
     rm -rf /efs/dmverity
 
@@ -102,6 +138,7 @@ on early-boot
 
 on boot
     start rmt_storage
+    start rfs_access
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
@@ -250,6 +287,7 @@ on boot
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
     # Permissions for Charging
+    chown sdcard_rw sdcard_rw /sys/class/power_supply/battery/store_mode
     mkdir /efs/Battery 0775 radio system
     chown radio system /efs/Battery
     chmod 0775 /efs/Battery
@@ -834,8 +872,27 @@ on charger
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
 on post-fs-data
-    # sec_efs_file
+    mkdir /data/tombstones 0771 system system
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/wcnss 0771 system system
+    mkdir /tombstones/dsps 0771 system system
+    mkdir /persist/data/sfs 0700 system system
+    mkdir /persist/data/tz 0700 system system
+    mkdir /data/misc/dts 0770 media audio
+    mkdir /data/misc/seemp 0700 system system
+    mkdir /data/usf 0700 system system
+    mkdir /data/misc/tloc/ 0700 system drmrpc
+    mkdir /data/misc/qvop 0660 system system
+    mkdir /data/misc/qvr 0770 system system
+    mkdir /data/misc/audio_pp 0771 media audio
     mkdir /efs/sec_efs 0775 radio system
+    mkdir /data/media 0770 media_rw media_rw
+    setprop vold.post_fs_data_done 1
+
+    # sem_daemon permission
+    chown system system /efs/sec_efs/ssp_data
+    chmod 0644 /efs/sec_efs/ssp_data
 
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data

@@ -31,6 +31,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 
+# boot device
+ro.boot.bootdevice=624000.ufshc
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1

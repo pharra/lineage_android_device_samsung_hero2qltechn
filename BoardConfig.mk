@@ -39,7 +39,7 @@ ENABLE_CPUSETS := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hero2qltechn,hero2qltedcm,hero2qltekdi
+TARGET_OTA_ASSERT_DEVICE := hero2qltechn
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8996
