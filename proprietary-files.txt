@@ -530,7 +530,6 @@ vendor/lib64/libMcClient.so
 vendor/lib/libMcRegistry.so
 vendor/lib64/libMcRegistry.so
 app/mcRegistry/07010000000000000000000000000000.tlbin
-app/mcRegistry/08880000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000014.tlbin
@@ -766,7 +765,7 @@ bin/at_distributor
 bin/connfwexe
 bin/bintvoutservice
 bin/sem_daemon
-bin/qfipsverify
+#bin/qfipsverify
 vendor/lib/libflash_pmic.so
 
 # Boot scripts
