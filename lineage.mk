@@ -37,9 +37,9 @@ PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="hero2qltechn" \
-    PRODUCT_NAME="hero2qltechn" \
-    BUILD_FINGERPRINT="samsung/hero2qltezc/hero2qltechn:7.0/NRD90M/G9350ZCU2BQC1:user/release-keys" \
-    PRIVATE_BUILD_DESC="hero2qltezc-user 7.0 NRD90M G9350ZCU2BQC1 release-keys"
+    PRODUCT_NAME="hero2qltezh" \
+    BUILD_FINGERPRINT="samsung/hero2qltezh/hero2qltechn:7.0/NRD90M/G9350ZHU2BQC1:user/release-keys" \
+    PRIVATE_BUILD_DESC="hero2qltezh-user 7.0 NRD90M G9350ZHU2BQC1 release-keys"
 
 
 TARGET_VENDOR := Samsung
