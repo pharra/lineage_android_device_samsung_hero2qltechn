@@ -137,6 +137,9 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.wifi.rc
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.recovery.qcom.rc:root/init.recovery.qcom.rc
+
 # CNE
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
