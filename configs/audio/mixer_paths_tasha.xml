@@ -2494,6 +2494,30 @@
     </path>
     <!-- end of call forward Scenario -->
 
+    <!-- Spectro Scenario -->
+    <path name="voice-call-spectro">
+        <ctl name="SLIM RX0 MUX" value="AIF3_PB" />
+        <ctl name="SLIM_0_RX Channels" value="One" />
+        <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
+        <ctl name="EAR PA Gain" value="G_6_DB" />
+        <ctl name="RX1 Digital Volume" value="0" />
+        <ctl name="Incall_Music Audio Mixer MultiMedia5" value="1" />
+    </path>
+
+    <path name="voice-call-spectro-mic">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="SLIM TX7 MUX" value="DEC6" />
+        <ctl name="DEC6 MUX" value="ADC1" />
+        <ctl name="DEC6 Volume" value="0" />
+        <ctl name="DEC7 Volume" value="0" />
+        <ctl name="DEC8 Volume" value="0" />
+        <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
+        <ctl name="MultiMedia1 Mixer VOC_REC_DL"  value="1" />
+    </path>
+    <!-- end of Spectro Scenario -->
+
     <!-- Video call Scenario -->
     <!-- RX part -->
     <path name="video-call-handset">
