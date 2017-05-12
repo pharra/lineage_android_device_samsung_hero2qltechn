@@ -55,8 +55,8 @@ void init_target_properties()
 
     if (bootloader.find("G9350") == 0) {
         /* hong kong */
-        property_set("ro.build.fingerprint", "samsung/hero2qltezh/hero2qltechn:6.0.1/MMB29M/G9350ZHU2APL1:user/release-keys");
-        property_set("ro.build.description", "hero2qltezh-user 6.0.1 MMB29M G9350ZHU2APL1 release-keys");
+        property_set("ro.build.fingerprint", "samsung/hero2qltezh/hero2qltechn:7.0/NRD90M/G9350ZHU2BQC1:user/release-keys");
+        property_set("ro.build.description", "hero2qltezh-user 7.0 NRD90M G9350ZHU2BQC1 release-keys");
         property_set("ro.product.model", "SM-G9350");
         property_set("ro.product.device", "hero2qltechn");
         gsm_properties("9");
