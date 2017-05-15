@@ -134,11 +134,10 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     init.usb.configfs.rc \
     init.qcom.sh \
-    init.qcom.syspart_fixup.sh \
     init.wifi.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.recovery.qcom.rc:root/init.recovery.qcom.rc
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:root/etc/init.recovery.qcom.rc
 
 # CNE
 PRODUCT_PACKAGES += \
