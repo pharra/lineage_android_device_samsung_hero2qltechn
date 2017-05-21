@@ -767,22 +767,3 @@ bin/bintvoutservice
 bin/sem_daemon
 #bin/qfipsverify
 vendor/lib/libflash_pmic.so
-
-# Boot scripts
-#bin/prepare_param.sh
-#etc/init.crda.sh
-#etc/init.qcom.bt.sh
-#etc/init.qcom.fm.sh
-#etc/usf_settings.sh
-#etc/init.ath3k.bt.sh
-#etc/init.sec.boot.sh
-#etc/usf_post_boot.sh
-#etc/init.qcom.coex.sh
-#etc/init.qcom.uicc.sh
-#etc/init.qcom.wifi.sh
-#etc/hsic.control.bt.sh
-#etc/init.qcom.audio.sh
-#etc/init.qcom.debug.sh
-#etc/qca6234-service.sh
-#etc/init.qcom.efs.sync.sh
-#etc/init.qcom.post_boot.sh
