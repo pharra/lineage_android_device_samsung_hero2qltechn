@@ -180,7 +180,9 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 RECOVERY_SDCARD_ON_DATA := true
 
 # Ramdisk
-BOARD_ROOT_EXTRA_FOLDERS := dsp efs firmware firmware/image firmware-modem persist bt_firmware
+BOARD_ROOT_EXTRA_FOLDERS := dsp efs firmware firmware-modem persist
+BOARD_ROOT_EXTRA_SYMLINKS := /system/etc/firmware/btfw32.tlv:/bt_firmware/image/btfw32.tlv
+BOARD_ROOT_EXTRA_SYMLINKS += /system/etc/firmware/btnv32.bin:/bt_firmware/image/btnv32.bin
 BOARD_ROOT_EXTRA_SYMLINKS += /data/tombstones:/tombstones
 
 # RIL
